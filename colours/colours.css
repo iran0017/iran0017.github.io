@@ -1,0 +1,79 @@
+/**
+Import Sans-Serif Web Font here using @import
+**/
+/**
+Create your CSS colour variables up here
+:root{
+  --primary1:
+  --primary2:
+  --secondary1:
+  --secondary2:
+  --grey1:
+  --grey2:
+  --grey3:
+  --grey4:
+}
+**/
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+body {
+  font-weight: 300;
+}
+
+header {
+  padding: 1rem 2rem;
+  font-size: 3rem;
+}
+
+nav {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+
+nav a {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+main {
+  padding: 1rem 2rem;
+}
+
+main h2 {
+  font-size: 2rem;
+}
+
+main p {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+ul {
+  margin: 1rem 2rem;
+}
+
+main li {
+  font-size: 1rem;
+}
+
+footer {
+  padding: 1rem 2rem;
+}
+
+footer p {
+  margin: 1rem 0;
+  font-size: 0.8rem;
+}
