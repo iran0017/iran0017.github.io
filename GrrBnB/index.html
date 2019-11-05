@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GrrBnB</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Security-Policy" 
+    content="default-src 'self' data: gap: ws: https://ssl.gstatic.com; 
+    style-src 'self' https://fonts.googleapis.com; 
+    font-src 'self' data: https://fonts.gstatic.com;
+    media-src *; 
+    img-src 'self' data: content:;">
+    <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+    <main>
+        <header>
+            <img src="img/grrbnb-icon-192x192.png" alt="GrrBnb Logo" />
+            <h1><span>Grr</span><span>Bnb</span></h1>
+        </header>
+        <form name="grr-form" action="#" method="post">
+            <div class="form-box place" title="Which city?">
+                <label for="city">Where</label>
+                <input type="text" placeholder="Which city?" id="city" name="city" required list="cities"/>
+            </div>
+            <div class="form-box check-in">
+                <label for="check-in">Check In</label>
+                <input type="date" placeholder="yyyy-mm-dd" id="check-in" name="check-in" required />
+            </div>
+            <div class="form-box check-out">
+                <label for="check-out">Check Out</label>
+                <input type="date" placeholder="yyyy-mm-dd" id="check-out" name="check-out" required />
+            </div>
+            <div class="form-box min-price" title="per day">
+                <label for="min-price">Min. Daily Price</label>
+                <input class="price" type="range" value="10" data-price="10" min="0" max="40" step="5" id="min" name="min" />
+            </div>
+            <div class="form-box max-price" title="per day">
+                <label for="max-price">Max. Daily Price</label>
+                <input class="price" type="range" value="40" data-price="40" min="40" max="100" step="10" id="max" name="max" />
+            </div>
+            <div class="form-box dogs">
+                <label for="num-dogs">Number of Dogs</label>
+                <input type="number" id="num-dogs" name="num-dogs" min="1" max="12" value="1"/>
+            </div>
+            <div class="form-box search">
+                <button class="search-btn">Search</button>
+            </div>
+        </form>
+    </main>
+    <datalist id="cities">
+        <option value="Aylmer"/>
+        <option value="Cornwall"/>
+        <option value="Gatineau"/>
+        <option value="Kingston"/>
+        <option value="Ottawa"/>
+        <option value="Perth"/>
+        <option value="Petawawa"/>
+    </datalist>
+    <script src="main.js"></script>
+</body>
+</html>
