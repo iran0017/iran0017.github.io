@@ -1,0 +1,9 @@
+span{
+    margin-left: 30px;
+}
+.parag{
+    border: 2px solid rgb(48, 48, 48);
+    width: 30%;
+    display: block;
+    padding: 10px;
+}
