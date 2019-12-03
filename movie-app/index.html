@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <main>
+      <div id="HOME" class="page active">
+        <h1 class="pageHeader">Home</h1>
+        <div class="full-width">
+          <div class="searchBar">
+            <input
+              placeholder="Enter your search string please ..."
+              type="text"
+              id="searchString"
+              class="searchString"
+            />
+            <a id="searchBtn"><img onclick="APP.search()" src="img/magnifying-glass.png" href="#ACTORS" data-href="ACTORS"/></a>
+          </div>
+        </div>
+      </div>
+      <div id="ACTORS" class="page">
+        <h1 class="pageHeader" id="AHeader">Actors</h1>
+        <div id="ActorsList"></div>
+        <a id="fixedButton" href="#HOME" data-href="HOME"><img src="img/whiteSearch.png" data-href="HOME"/></a>
+      </div>
+      <div id="MOVIES" class="page">
+        <h1 class="pageHeader" id="MHeader">MOVIES</h1>
+        <div id="MoviesList"></div>
+        <a id="fixedButton" href="#HOME" data-href="HOME"><img src="img/whiteSearch.png" data-href="HOME"/></a>
+      </div>
+      <div id="MOVIE_DETAIL" class="page">
+        <h1 class="pageHeader" id="DHeader">THE MOVIE</h1>
+        <div id="MovieDetail"></div>
+        <a id="fixedButton" href="#HOME" data-href="HOME"><img src="img/whiteSearch.png" data-href="HOME"/></a>
+      </div>
+    </main>
+  </body>
+</html>
