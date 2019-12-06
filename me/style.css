@@ -1,0 +1,13 @@
+.min-vh-40{
+    min-height: 40vh;
+}
+.mt-vh-30{
+    margin-top: 30vh;
+}
+.theme-blue{
+    background-color: hsl(195, 100%, 85%);
+}
+.my-banner-image{
+    background-image: url(banner.jpg);
+    background-size: cover;
+}
