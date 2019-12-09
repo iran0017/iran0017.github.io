@@ -1,137 +1,186 @@
-.min-vh-40{
+.min-vh-40 {
     min-height: 40vh;
 }
-.mt-vh-30{
+
+.mt-vh-30 {
     margin-top: 30vh;
 }
-.mt-vh-15{
+
+.mt-vh-15 {
     margin-top: 15vh;
 }
-.mt-vh-10{
+
+.mt-vh-10 {
     margin-top: 10vh;
 }
-.theme-blue{
+
+.theme-blue {
     background-color: hsl(195, 100%, 85%);
 }
-.my-banner-image{
+
+.my-banner-image {
     background-image: url(img/banner.jpg);
     background-size: cover;
 }
-.jumbotron{
+
+.jumbotron {
     background-color: transparent;
     color: white;
 }
 
-@media (max-width: 576px)
-{
-.text-xs-center {
-    text-align: center;
+@media (max-width: 576px) {
+    .text-xs-center {
+        text-align: center;
+    }
 }
-}
-@media (min-width:577px){
-    .container-sm{
+
+@media (min-width:577px) {
+    .container-sm {
         max-width: 80%;
         width: 80%;
     }
-    .float-xs-right{
+    .float-xs-right {
         float: right;
     }
 }
-#bgd-1{
+
+#bgd-1 {
     padding: 20px 0;
     background-color: hsl(197, 96%, 9%);
 }
-.bg-1{
+
+.bg-1 {
     background-image: url(img/banner1.jpg);
     background-size: cover;
 }
-.bgc-1{
+
+.bgc-1 {
     background-color: hsla(198, 95%, 8%, 0.812);
     padding: 10px;
 }
-#bgd-2{
+
+#bgd-2 {
     padding: 20px 0;
     background-color: hsl(1, 76%, 74%);
 }
-.bg-2{
+
+.bg-2 {
     background-image: url(img/banner2.jpg);
     background-size: cover;
 }
-.bgc-2{
+
+.bgc-2 {
     background-color: hsla(336, 20%, 49%, 0.588);
     padding: 10px;
 }
-#bgd-3{
+
+#bgd-3 {
     padding: 20px 0;
     background-color: hsl(154, 95%, 17%);
 }
-.bg-3{
+
+.bg-3 {
     background-image: url(img/banner3.jpg);
     background-size: cover;
 }
-.bgc-3{
+
+.bgc-3 {
     background-color: hsla(154, 92%, 10%, 0.729);
     padding: 10px;
 }
-#bgd-4{
+
+#bgd-4 {
     padding: 20px 0;
     background-color: hsl(330, 58%, 39%);
 }
-.bg-4{
+
+.bg-4 {
     background-image: url(img/banner4.jpg);
     background-size: cover;
 }
-.bgc-4{
+
+.bgc-4 {
     background-color: hsla(329, 82%, 30%, 0.71);
     padding: 50px 10px;
 }
-#bgd-5{
+
+#bgd-5 {
     padding: 20px 0;
     background-color: hsl(271, 85%, 19%);
 }
-.bg-5{
+
+.bg-5 {
     background-image: url(img/banner5.jpg);
     background-size: cover;
 }
-.bgc-5{
+
+.bgc-5 {
     background-color: hsla(270, 92%, 14%, 0.741);
     padding: 10px;
 }
-#bgd-6{
+
+#bgd-6 {
     padding: 20px 0;
     background-color: hsl(197, 94%, 21%);
 }
-.bg-6{
+
+.bg-6 {
     background-image: url(img/banner6.jpg);
     background-size: cover;
 }
-.bgc-6{
+
+.bgc-6 {
     background-color: hsla(197, 89%, 17%, 0.71);
     padding: 10px;
 }
-.list-group{
+
+.bg-portfolio {
+    background-image: url(portfolioImg/portfolio-bg.jpg);
+}
+
+.bg-contact {
+    background-image: url(img/contact-bg.png);
+    background-size: cover;
+}
+
+#bgc-contact {
+    background-color: hsla(0, 93%, 5%, 0.671);
+}
+
+.list-group {
     color: black;
 }
-.accordion{
+
+.accordion {
     color: black;
 }
-.w-200px{
+
+.w-200px {
     width: 200px;
 }
-.list-group-item{
+
+.list-group-item {
     background-color: hsla(193, 39%, 56%, 0.749);
 }
-#collapseOne,#collapseTwo,#collapseThree{
-background-color: hsl(329, 65%, 72%);
-color:white;
+
+#collapseOne,
+#collapseTwo,
+#collapseThree {
+    background-color: hsl(329, 65%, 72%);
+    color: white;
 }
-#headingOne,#headingTwo,#headingThree{
+
+#headingOne,
+#headingTwo,
+#headingThree {
     background-color: hsla(330, 47%, 49%, 0.81);
 }
-#HomeCard{
+
+#HomeCard {
     border: 1px solid hsl(330, 94%, 30%);
 }
-#footer{
+
+#footer {
     background-color: #343a40;
     color: white;
     text-align: center;
