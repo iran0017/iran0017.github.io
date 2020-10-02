@@ -1,0 +1,135 @@
+body {
+    background-color: #18a1bf;
+}
+
+.card-img-top {
+    width: 30%;
+    margin: 15px auto -30px auto;
+    display: inherit;
+}
+
+#current {
+    color: white;
+    background-color: unset;
+}
+
+#current li {
+    color: black;
+}
+
+.current-card-body {
+    text-align: center;
+    font-size: 4rem;
+}
+
+.hourly-card-body {
+    text-align: center;
+    background-color: #00dcff;
+    border-radius: 25px;
+    margin: 0 2px;
+}
+
+.hourly-card-body h5 {
+    font-size: 0.8rem !important;
+    margin-top: 15px;
+    width: 40px;
+    margin-left: -10px;
+}
+
+.hourly-card-body img {
+    width: 40px;
+    margin-left: -10px;
+}
+
+.col-2 {
+    max-width: 15% !important;
+}
+
+#hourly-stats {
+    margin-top: 20px;
+    margin-left: -10px;
+}
+
+.card {
+    border: none;
+}
+
+.list-group-item {
+    background-color: #03dcff;
+    color: white !important;
+}
+
+.btn-slider {
+    width: 49%;
+    height: 30px;
+    border: none;
+}
+
+.slider {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    text-align: center !important;
+    margin-left: 0px;
+    background-color: #19a1bf;
+}
+
+#daily-stats {
+    overflow: scroll;
+    margin-top: 20px;
+    margin-left: -15px;
+}
+
+.daily-card-body {
+    background-color: #00dcff;
+    height: 40px;
+    padding-top: 5px;
+    display: flex;
+    margin-top: 5px;
+}
+
+.daily-card-body h5 {
+    width: 20%;
+    margin-right: 30px;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.daily-card-body img {
+    width: 40px;
+    margin-right: 30px;
+}
+
+.navbar-brand {
+    display: flex;
+}
+
+.bg-light {
+    background-color: #11768c !important;
+}
+
+#middle-content {
+    margin-bottom: 30px;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+}
+
+#current {
+    margin-top: 50px;
+}
+
+.bg-transparent {
+    border: none;
+}
+
+#location-modal {
+    background-color: #505050a1;
+}
+
+#main-submit-location-btn {
+    background-color: #ababab !important;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather | iran0017</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/ce9a118649.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div id="root">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="navbar-brand">
+                <input id="main-location-inp" required type="text" class="form-control text-center w-100" placeholder="My address is ..." />
+                <button class="btn btn-secondary ml-1" id="main-submit-location-btn">
+            Set Location
+          </button>
+                <a class="btn btn-info ml-1" id="main-find-location-btn"><i class="fas fa-map-marker-alt"></i
+          ></a>
+            </div>
+        </nav>
+        <div class="card" id="current">
+            <div class="container" id="top-content"></div>
+            <div class="container" id="middle-content"></div>
+            <div class="row slider">
+                <div class="col-12">
+                    <button class="btn-slider" id="btn-hourly" style="background-color: white">
+              Hourly
+            </button>
+                    <button class="btn-slider" id="btn-daily" style="background-color: #ababab">
+              Daily
+            </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loader-modal" class="modal" tabindex="-1" data-backdrop="static">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content bg-transparent text-center">
+                <div class="modal-body">
+                    <img src="loader.gif" class="w-100" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="index.js" type="module"></script>
+</body>
+
+</html>
