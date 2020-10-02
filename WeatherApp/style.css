@@ -133,3 +133,8 @@ body {
 #main-submit-location-btn {
     background-color: #ababab !important;
 }
+
+.navbar,
+.navbar-brand {
+    width: 100%;
+}
