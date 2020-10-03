@@ -54,7 +54,6 @@ function showDailyStats() {
 }
 async function makePrompt() {
     let coords = getCachedCoordinates()
-    console.log('makePrompt: ', coords)
     if (!coords) {
         let template = `<div id="location-modal" class="modal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
@@ -181,18 +180,24 @@ function prepareCurrent(current) {
     </div>
     <ul class="list-group list-group-flush">
         <li class="list-group-item">Humidity: ${humidity}%</li>
-        <li class="list-group-item">Feels like: ${feels_like}°</li>
+        <li class="list-group-item">Feels like: ${feels_like.toFixed(0)}°</li>
         <li class="list-group-item">Status: ${description}</li>
     </ul>`
     screen.prepend(template)
 }
 function prepareDaily(daily) {
-    console.log('daily shown: ', daily)
-    let items = ``;
+    let items = ``
+    let today = new Date(new Date().toLocaleDateString()).setHours(12)
+    const dailyForcast = daily.filter(forcast => {
+        if (forcast.dt * 1000 >= today) {
+            return forcast
+        }
+    })
     for (let index = 0; index < 6; index++) {
-        const element = daily[index];
+        const element = dailyForcast[index]
+        let date = new Date(element.dt * 1000)
         items += `<div class="col-12 daily-card-body">
-                    <h5>Friday</h5>
+                    <h5>${date.toString().substr(0, 3)}</h5>
                     <img src="https://openweathermap.org/img/w/${element.weather[0].icon}.png" alt="..." />
                     <h5><i class="fas fa-arrow-up">${element.temp.max.toFixed(0)}°</i></h5>
                     <h5><i class="fas fa-arrow-down">${element.temp.min.toFixed(0)}°</i></h5>
@@ -204,12 +209,18 @@ function prepareDaily(daily) {
     midContent.append(template)
 }
 function prepareHourly(hourly) {
-    console.log('hourly shown: ', hourly)
-    let items = ``;
+    let items = ``
+    let now = new Date().getTime()
+    const hourlyForcast = hourly.filter(forcast => {
+        if (forcast.dt * 1000 >= now) {
+            return forcast
+        }
+    })
     for (let index = 0; index < 6; index++) {
-        const element = hourly[index];
+        const element = hourlyForcast[index]
+        let date = new Date(element.dt * 1000).toLocaleTimeString([], { hour: '2-digit' })
         items += `<div class="col-2 hourly-card-body">
-        <h5>1PM</h5>
+        <h5>${date[0] == '0' ? date.substr(1) : date}</h5>
         <img src="https://openweathermap.org/img/w/${element.weather[0].icon}.png" alt="..." />
         <h5>${element.temp.toFixed(0)}°</h5>
     </div>`
