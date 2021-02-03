@@ -1,0 +1,194 @@
+[
+    {
+        "name":"Signup",
+        "description":"This API is for signing up users. it will use for both admin and application users",
+        "type":"post",
+        "target":"general",
+        "url":"api/users/signup",
+        "authorization":false,
+        "parameters":["email","password","firstname","lastname","indigenousType","isAdmin","age","gender","imei"]
+    },
+    {
+        "name":"Signin",
+        "description":"This API is for signing in users. the response of this API will include token for authorization include APIs",
+        "type":"post",
+        "target":"general",
+        "url":"api/users/signin",
+        "authorization":false,
+        "parameters":["email","password"]
+    },
+    {
+        "name":"Manage Password",
+        "description":"This API is for editing password",
+        "type":"post",
+        "target":"general",
+        "url":"api/users/managepassword",
+        "authorization":true,
+        "parameters":["oldpassword","newpassword"]
+    },
+    {
+        "name":"Reset Password",
+        "description":"This API is for resetting password. a new password will be emailed to the provided email address",
+        "type":"post",
+        "target":"general",
+        "url":"api/users/resetpassword",
+        "authorization":false,
+        "parameters":["email"]
+    },
+    {
+        "name":"Logout",
+        "description":"This API is for loging out users",
+        "type":"post",
+        "target":"general",
+        "url":"api/users/logout",
+        "authorization":true,
+        "parameters":[]
+    },
+    {
+        "name":"List Users",
+        "description":"This API is for pulling list of all users based on filters applied",
+        "type":"get",
+        "target":"admin",
+        "url":"api/users/list",
+        "authorization":true,
+        "parameters":["page","keyword","gender","indigenousType"]
+    },
+    {
+        "name":"Detail User",
+        "description":"This API is for pulling data related to a specific user",
+        "type":"get",
+        "target":"general",
+        "url":"api/users/detail",
+        "authorization":true,
+        "parameters":["userid"]
+    },
+    {
+        "name":"Edit User",
+        "description":"This API is for editing user profile information. for admin panel userid must be passed as parameter but for application users userid parameter is not required",
+        "type":"put",
+        "target":"general",
+        "url":"api/users/edit",
+        "authorization":true,
+        "parameters":["userid","firstname","lastname","indigenousType","age","gender"]
+    }
+
+
+    ,
+    {
+        "name":"Edit User",
+        "description":"This API is for editing user profile information. for admin panel userid must be passed as parameter but for application users userid parameter is not required",
+        "type":"put",
+        "target":"general",
+        "url":"api/users/edit",
+        "authorization":true,
+        "parameters":["userid","firstname","lastname","indigenousType","age","gender"]
+    },
+    {
+        "name":"Add Post",
+        "description":"This API is for adding new post by admins. mediaId must be passed in 12,14,23 format if admin chose many medias",
+        "type":"post",
+        "target":"admin",
+        "url":"api/posts/add",
+        "authorization":true,
+        "parameters":["title","description","categoryId","mediaId[]","isPublic"]
+    },
+    {
+        "name":"Edit Post",
+        "description":"This API is for editing a post by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/posts/edit",
+        "authorization":true,
+        "parameters":["postId","title","description","categoryId","mediaId[]","isPublic"]
+    },
+    {
+        "name":"Delete Post",
+        "description":"This API is for deleting a post by admin",
+        "type":"delete",
+        "target":"admin",
+        "url":"api/posts/delete",
+        "authorization":true,
+        "parameters":["postId"]
+    },
+    {
+        "name":"List Posts",
+        "description":"This API is for pulling all posts for admin based on provided filters",
+        "type":"get",
+        "target":"admin",
+        "url":"api/posts/listForAdmin",
+        "authorization":true,
+        "parameters":["keyword","isPublic","categoryId","page"]
+    },
+    {
+        "name":"Detail Posts",
+        "description":"This API is for getting details of a single post for admin",
+        "type":"get",
+        "target":"admin",
+        "url":"api/posts/detailForAdmin",
+        "authorization":true,
+        "parameters":["postId"]
+    },
+    {
+        "name":"Change isPublic Post",
+        "description":"This API is for changing isPublic status of a post by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/posts/changeIsPublic",
+        "authorization":true,
+        "parameters":["postId"]
+    },
+    {
+        "name":"Add Center",
+        "description":"This API is for adding new center by admins. mediaId must be passed in 12,14,23 format if admin chose many medias",
+        "type":"post",
+        "target":"admin",
+        "url":"api/centers/add",
+        "authorization":true,
+        "parameters":["name","description","categoryId","mediaId[]","isPublic","lat","lon","isAvailable","phone","address","email","website","openHours"]
+    },
+    {
+        "name":"Edit Center",
+        "description":"This API is for editing a center by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/centers/edit",
+        "authorization":true,
+        "parameters":["centerId","name","description","categoryId","mediaId[]","isPublic","lat","lon","isAvailable","phone","address","email","website","openHours"]
+    },
+    {
+        "name":"Delete Center",
+        "description":"This API is for deleting a center by admin",
+        "type":"delete",
+        "target":"admin",
+        "url":"api/centers/delete",
+        "authorization":true,
+        "parameters":["centerId"]
+    },
+    {
+        "name":"List Center",
+        "description":"This API is for pulling all centers for admin based on provided filters",
+        "type":"get",
+        "target":"admin",
+        "url":"api/centers/listForAdmin",
+        "authorization":true,
+        "parameters":["keyword","isPublic","categoryId","page","isAvailable"]
+    },
+    {
+        "name":"Detail Center",
+        "description":"This API is for getting details of a single center for admin",
+        "type":"get",
+        "target":"admin",
+        "url":"api/centers/detailForAdmin",
+        "authorization":true,
+        "parameters":["centerId"]
+    },
+    {
+        "name":"Change isPublic Center",
+        "description":"This API is for changing isPublic status of a center by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/posts/changeIsPublic",
+        "authorization":true,
+        "parameters":["centerId"]
+    }
+]
