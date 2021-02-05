@@ -436,7 +436,7 @@
         "description":"This API is for replying to the specified discussion",
         "type":"post",
         "target":"general",
-        "url":"api/discussions/add",
+        "url":"api/discussions/reply",
         "authorization":true,
         "parameters":["discussionId","author","text"]
     },
