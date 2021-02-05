@@ -70,10 +70,7 @@
         "url":"api/users/edit",
         "authorization":true,
         "parameters":["userid","firstname","lastname","indigenousType","age","gender"]
-    }
-
-
-    ,
+    },
     {
         "name":"Edit User",
         "description":"This API is for editing user profile information. for admin panel userid must be passed as parameter but for application users userid parameter is not required",
@@ -112,19 +109,19 @@
     },
     {
         "name":"List Posts",
-        "description":"This API is for pulling all posts for admin based on provided filters",
+        "description":"This API is for pulling all posts based on provided filters",
         "type":"get",
-        "target":"admin",
-        "url":"api/posts/listForAdmin",
+        "target":"general",
+        "url":"api/posts/list",
         "authorization":true,
         "parameters":["keyword","isPublic","categoryId","page"]
     },
     {
         "name":"Detail Posts",
-        "description":"This API is for getting details of a single post for admin",
+        "description":"This API is for getting details of a single post",
         "type":"get",
-        "target":"admin",
-        "url":"api/posts/detailForAdmin",
+        "target":"general",
+        "url":"api/posts/detail",
         "authorization":true,
         "parameters":["postId"]
     },
@@ -134,6 +131,33 @@
         "type":"put",
         "target":"admin",
         "url":"api/posts/changeIsPublic",
+        "authorization":true,
+        "parameters":["postId"]
+    },
+    {
+        "name":"Share Post",
+        "description":"This API is for increas shareCount of a post by user",
+        "type":"put",
+        "target":"application",
+        "url":"api/posts/share",
+        "authorization":true,
+        "parameters":["postId"]
+    },
+    {
+        "name":"Like Post",
+        "description":"This API is for increase likeCount of a post by user",
+        "type":"put",
+        "target":"application",
+        "url":"api/posts/like",
+        "authorization":true,
+        "parameters":["postId"]
+    },
+    {
+        "name":"Dislike Post",
+        "description":"This API is for decrease likeCount of a post by user",
+        "type":"put",
+        "target":"application",
+        "url":"api/posts/dislike",
         "authorization":true,
         "parameters":["postId"]
     },
@@ -156,6 +180,15 @@
         "parameters":["centerId","name","description","categoryId","mediaId[]","isPublic","lat","lon","isAvailable","phone","address","email","website","openHours"]
     },
     {
+        "name":"Add Review To Center",
+        "description":"This API is for adding new review to the specified center",
+        "type":"post",
+        "target":"application",
+        "url":"api/centers/review",
+        "authorization":true,
+        "parameters":["score","centerId"]
+    },
+    {
         "name":"Delete Center",
         "description":"This API is for deleting a center by admin",
         "type":"delete",
@@ -166,19 +199,19 @@
     },
     {
         "name":"List Center",
-        "description":"This API is for pulling all centers for admin based on provided filters",
+        "description":"This API is for pulling all centers based on provided filters",
         "type":"get",
-        "target":"admin",
-        "url":"api/centers/listForAdmin",
+        "target":"general",
+        "url":"api/centers/list",
         "authorization":true,
         "parameters":["keyword","isPublic","categoryId","page","isAvailable"]
     },
     {
         "name":"Detail Center",
-        "description":"This API is for getting details of a single center for admin",
+        "description":"This API is for getting details of a single center",
         "type":"get",
-        "target":"admin",
-        "url":"api/centers/detailForAdmin",
+        "target":"general",
+        "url":"api/centers/detail",
         "authorization":true,
         "parameters":["centerId"]
     },
@@ -187,8 +220,279 @@
         "description":"This API is for changing isPublic status of a center by admin",
         "type":"put",
         "target":"admin",
-        "url":"api/posts/changeIsPublic",
+        "url":"api/centers/changeIsPublic",
         "authorization":true,
         "parameters":["centerId"]
+    },
+    {
+        "name":"Add Comment",
+        "description":"This API is for adding new comment",
+        "type":"post",
+        "target":"application",
+        "url":"api/comments/add",
+        "authorization":true,
+        "parameters":["text","author","postId","centerId"]
+    },
+    {
+        "name":"List Comment",
+        "description":"This API is for pulling all comments for admin based on provided filters",
+        "type":"get",
+        "target":"admin",
+        "url":"api/comments/listForAdmin",
+        "authorization":true,
+        "parameters":["keyword","isPublic","dateFrom","dateTo","page"]
+    },
+    {
+        "name":"Delete Comment",
+        "description":"This API is for deleting a single comment by admin",
+        "type":"delete",
+        "target":"general",
+        "url":"api/comments/delete",
+        "authorization":true,
+        "parameters":["commentId"]
+    },
+    {
+        "name":"Change isPublic Comment",
+        "description":"This API is for changing isPublic status of a comment by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/posts/changeIsPublic",
+        "authorization":true,
+        "parameters":["commentId"]
+    },
+    {
+        "name":"Add Category",
+        "description":"This API is for adding new category by admins.",
+        "type":"post",
+        "target":"admin",
+        "url":"api/categories/add",
+        "authorization":true,
+        "parameters":["name","type"]
+    },
+    {
+        "name":"Edit Category",
+        "description":"This API is for editing a category by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/categories/edit",
+        "authorization":true,
+        "parameters":["name"]
+    },
+    {
+        "name":"Delete Category",
+        "description":"This API is for deleting a category by admin",
+        "type":"delete",
+        "target":"admin",
+        "url":"api/categories/delete",
+        "authorization":true,
+        "parameters":["categoryId"]
+    },
+    {
+        "name":"List Category",
+        "description":"This API is for pulling all categories for admin",
+        "type":"get",
+        "target":"admin",
+        "url":"api/categories/list",
+        "authorization":true,
+        "parameters":["page"]
+    },
+    {
+        "name":"Add Message",
+        "description":"This API is for sending new message.",
+        "type":"post",
+        "target":"general",
+        "url":"api/messages/add",
+        "authorization":true,
+        "parameters":["text","sender","reciever"]
+    },
+    {
+        "name":"List Messages",
+        "description":"This API is for pulling all sent messages between admin and a specific user",
+        "type":"get",
+        "target":"general",
+        "url":"api/messages/list",
+        "authorization":true,
+        "parameters":["page"]
+    },
+    {
+        "name":"Add Service",
+        "description":"This API is for adding new service by admins. mediaId must be passed in 12,14,23 format if admin chose many medias",
+        "type":"post",
+        "target":"admin",
+        "url":"api/services/add",
+        "authorization":true,
+        "parameters":["name","description","categoryId","mediaId[]","isPublic","phone","address","email"]
+    },
+    {
+        "name":"Edit Service",
+        "description":"This API is for editing a service by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/services/edit",
+        "authorization":true,
+        "parameters":["serviceId","name","description","categoryId","mediaId[]","isPublic","phone","address","email"]
+    },
+    {
+        "name":"Delete Service",
+        "description":"This API is for deleting a service by admin",
+        "type":"delete",
+        "target":"admin",
+        "url":"api/services/delete",
+        "authorization":true,
+        "parameters":["serviceId"]
+    },
+    {
+        "name":"List Service",
+        "description":"This API is for pulling all services based on provided filters",
+        "type":"get",
+        "target":"general",
+        "url":"api/services/list",
+        "authorization":true,
+        "parameters":["keyword","isPublic","categoryId","page","isAvailable"]
+    },
+    {
+        "name":"Detail Service",
+        "description":"This API is for getting details of a single service",
+        "type":"get",
+        "target":"general",
+        "url":"api/services/detail",
+        "authorization":true,
+        "parameters":["serviceId"]
+    },
+    {
+        "name":"Change isPublic Service",
+        "description":"This API is for changing isPublic status of a service by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/services/changeIsPublic",
+        "authorization":true,
+        "parameters":["serviceId"]
+    },
+    {
+        "name":"Add Question",
+        "description":"This API is for adding new question and answer options related to the it by admins.",
+        "type":"post",
+        "target":"admin",
+        "url":"api/questions/add",
+        "authorization":true,
+        "parameters":["text","author","answerId[]"]
+    },
+    {
+        "name":"Edit Question",
+        "description":"This API is for editing a question by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/questions/edit",
+        "authorization":true,
+        "parameters":["questionId","text","author","answerId[]"]
+    },
+    {
+        "name":"Delete Question",
+        "description":"This API is for deleting a question and its related answers by admin",
+        "type":"delete",
+        "target":"admin",
+        "url":"api/questions/delete",
+        "authorization":true,
+        "parameters":["questionId"]
+    },
+    {
+        "name":"List Question",
+        "description":"This API is for pulling all questions for admin based on provided filters",
+        "type":"get",
+        "target":"admin",
+        "url":"api/questions/listForAdmin",
+        "authorization":true,
+        "parameters":["keyword","isPublic","page"]
+    },
+    {
+        "name":"Detail Question",
+        "description":"This API is for getting details of a single question",
+        "type":"get",
+        "target":"general",
+        "url":"api/questions/detail",
+        "authorization":true,
+        "parameters":["questionId"]
+    },
+    {
+        "name":"Change isPublic Question",
+        "description":"This API is for changing isPublic status of a question by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/questions/changeIsPublic",
+        "authorization":true,
+        "parameters":["questionId"]
+    },
+    {
+        "name":"Add Discussion",
+        "description":"This API is for adding new discussion Item",
+        "type":"post",
+        "target":"general",
+        "url":"api/discussions/add",
+        "authorization":true,
+        "parameters":["text","author"]
+    },
+    {
+        "name":"Reply Discussion",
+        "description":"This API is for replying to the specified discussion",
+        "type":"post",
+        "target":"general",
+        "url":"api/discussions/add",
+        "authorization":true,
+        "parameters":["discussionId","author","text"]
+    },
+    {
+        "name":"Delete Discussion",
+        "description":"This API is for deleting a discussion and its related answers by admin",
+        "type":"delete",
+        "target":"admin",
+        "url":"api/discussions/delete",
+        "authorization":true,
+        "parameters":["discussionId"]
+    },
+    {
+        "name":"List Discussion",
+        "description":"This API is for pulling all discussions",
+        "type":"get",
+        "target":"general",
+        "url":"api/discussions/list",
+        "authorization":true,
+        "parameters":["keyword","isPublic","page"]
+    },
+    {
+        "name":"Detail Discussion",
+        "description":"This API is for pulling a discussion with all of including replies",
+        "type":"get",
+        "target":"general",
+        "url":"api/discussions/detail",
+        "authorization":true,
+        "parameters":["discussionId"]
+    },
+    {
+        "name":"Change isPublic Discussion",
+        "description":"This API is for changing isPublic status of a discussion by admin",
+        "type":"put",
+        "target":"admin",
+        "url":"api/discussions/changeIsPublic",
+        "authorization":true,
+        "parameters":["discussionId"]
+    },
+    {
+        "name":"Participate Poll",
+        "description":"This API is for participating in poll by users",
+        "type":"post",
+        "target":"application",
+        "url":"api/questions/participate",
+        "authorization":true,
+        "parameters":["questionId","userId","answerId"]
+    },
+    {
+        "name":"Get Poll",
+        "description":"This API is for getting latest poll for user",
+        "type":"get",
+        "target":"application",
+        "url":"api/questions/poll",
+        "authorization":true,
+        "parameters":[]
     }
+
 ]

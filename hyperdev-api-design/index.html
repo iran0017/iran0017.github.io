@@ -18,13 +18,13 @@
           API Design For Indigenous Project
         </h1>
         <h3 style="margin: 10px 0 80px 0; color: #66422c">By HyperDev</h3>
-        <div style="max-height: 60vh !important; overflow-y: scroll !important">
+        <div style="max-height: 65vh !important; overflow-y: scroll !important">
           <table id="api-table" class="display">
             <thead>
               <tr>
                 <th>API Name</th>
                 <th>Type</th>
-                <th>Target</th>
+                <th>Consumer</th>
                 <th>Url</th>
                 <th>Need Token</th>
                 <th></th>
@@ -68,69 +68,6 @@
       charset="utf8"
       src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"
     ></script>
-    <script>
-      $(document).ready(function () {
-        let tbody = ``;
-        let apiArray = [];
-        $.getJSON("ApiDesign.json", function (json) {
-          apiArray = json;
-          json.forEach((api) => {
-            tbody += `<tr>
-                        <td>${api.name}</td>
-                        <td><span class="api-type-${api.type}">${
-              api.type
-            }<span></td>
-                        <td>${
-                          api.target === "admin"
-                            ? "Admin"
-                            : api.target === "application"
-                            ? "Mobile"
-                            : "Mobile/Admin"
-                        }</td>
-                        <td>${api.url}</td>
-                        <td>${
-                          api.authorization
-                            ? '<i style="color:green;" class="fa fa-check">'
-                            : ""
-                        }</td>
-                        <td><a class="openmodale"  href="#"><i data-id="${
-                          api.url
-                        }" style="color:#9e7e5d;" class="fa fa-info-circle"></i></a></td>
-                    </tr>`;
-          });
-          $("#api-table-tbody").append(tbody);
-          $("#api-table").DataTable({
-            pageLength: 10,
-          });
-          $(".openmodale").click(function (e) {
-            let matchedApi = apiArray.find((api) => {
-              return api.url === e.target.getAttribute("data-id");
-            });
-            $("#api-name").text("API: " + matchedApi.name);
-            $("#api-url").html(matchedApi.url);
-            $("#api-description").html(
-              "<strong>Description: </strong></br>" + matchedApi.description
-            );
-            $("#api-parameters").html(
-              "<strong>Parameters: </strong></br>" +
-                (matchedApi.parameters.length
-                  ? matchedApi.parameters.join(" - ")
-                  : "No parameters needed")
-            );
-            $("#api-token").html(
-              matchedApi.authorization
-                ? '<strong style="padding:3px 10px;background-color:green;color:white">Need to include token in request</strong>'
-                : ""
-            );
-            e.preventDefault();
-            $(".modale").addClass("opened");
-          });
-          $(".closemodale").click(function (e) {
-            e.preventDefault();
-            $(".modale").removeClass("opened");
-          });
-        });
-      });
-    </script>
+<script src="index.js" defer></script>
   </body>
 </html>
