@@ -4,7 +4,7 @@ var streamID;
 // Get video element 
 const video = document.getElementById('video');
 let codes = [];
-const seen = new Set();
+let seen = new Set();
 var audio = new Audio('/BarcodeScanner/sounds/beep.wav');
 let formats;
 // Save all formats to formats var 
@@ -107,8 +107,8 @@ const detectCode = () => {
             // Draw outline
             video.pause();
             isDetected = true;
-            if (isDetected)
-                drawCodePath(barcode);
+            //if (isDetected)
+            //drawCodePath(barcode);
             // Code in seen set then exit loop 
             if (seen.has(barcode.rawValue)) return;
 
@@ -137,17 +137,17 @@ function initScanBarcode(streamid) {
     }
     if (!streamObj)
         document.getElementById(streamID).addEventListener("hidden.bs.modal", function () {
+            isDetected = false;
+            seen = new Set();
             if (streamObj)
                 stopBothVideoAndAudio(streamObj);
         });
     // Run detect code function every 100 milliseconds
-    const detectInterval = setInterval((interval) => {
+    let detectInterval = setInterval((interval) => {
         detectCode();
         if (isDetected) {
             clearInterval(detectInterval);
-            streamObj.getTracks().forEach(function (track) {
-                track.stop();
-            });
+            stopBothVideoAndAudio(streamObj);
         }
     }, 100);
 }
