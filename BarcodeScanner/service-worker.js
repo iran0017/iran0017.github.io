@@ -8,18 +8,18 @@ const dynamicCacheName = 'runtimeCache-v1';
 // Pre Caching Assets
 const precacheAssets = [
     '/',
-    '../css/bootstrap.min.css',
-    '../img/core-img/dot-blue.png',
-    '../img/core-img/dot.png',
-    '../img/core-img/logo.png',
-    '../img/core-img/logo-dark.png',
-    '../img/core-img/favicon.ico',
-    '../js/active.js',
-    '../js/dark-rtl.js',
-    '../js/bootstrap.bundle.min.js',
-    '../js/pwa.js',
-    '../manifest.json',
-    '../style.css'
+    './css/bootstrap.min.css',
+    './img/core-img/dot-blue.png',
+    './img/core-img/dot.png',
+    './img/core-img/logo.png',
+    './img/core-img/logo-dark.png',
+    './img/core-img/favicon.ico',
+    './js/active.js',
+    './js/dark-rtl.js',
+    './js/bootstrap.bundle.min.js',
+    './js/pwa.js',
+    './manifest.json',
+    './style.css'
 ];
 
 // Install Event
