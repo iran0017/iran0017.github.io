@@ -102,7 +102,7 @@ const drawCodePath = ({ cornerPoints }) => {
     ctx.stroke();
 }
 var isDetected = false;
-var audio = new Audio('/sounds/beep.wav');
+var audio = new Audio('/BarcodeScanner/sounds/beep.wav');
 // Detect code function 
 const detectCode = () => {
     barcodeDetector.detect(video).then(codes => {
