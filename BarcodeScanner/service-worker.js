@@ -18,14 +18,7 @@ const precacheAssets = [
     'js/dark-rtl.js',
     'js/bootstrap.bundle.min.js',
     'js/pwa.js',
-    'element-hero-blocks.html',
-    'page-login.html',
     'manifest.json',
-    'page-home.html',
-    'pages.html',
-    'elements.html',
-    'settings.html',
-    'page-fallback.html',
     'style.css'
 ];
 
