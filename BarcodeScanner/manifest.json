@@ -1,7 +1,7 @@
 {
   "name": "Affan",
   "short_name": "Affan",
-  "start_url": "http://127.0.0.1:5501/dist/",
+  "start_url": "https://iran0017.github.io/BarcodeScanner/",
   "display": "standalone",
   "background_color": "#0d5afd",
   "theme_color": "#0d5afd",
