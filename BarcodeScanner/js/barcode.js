@@ -48,7 +48,7 @@ var streamObj;
 // Check for a camera
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
     const constraints = {
-        video: true,
+        video: { facingMode: { exact: "environment" } },
         audio: false
     };
 
