@@ -7,7 +7,6 @@ const dynamicCacheName = 'runtimeCache-v1';
 
 // Pre Caching Assets
 const precacheAssets = [
-    '/',
     '/css/bootstrap.min.css',
     '/img/core-img/dot-blue.png',
     '/img/core-img/dot.png',
