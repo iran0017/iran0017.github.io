@@ -2,7 +2,7 @@ if (!('BarcodeDetector' in window)) { alert('Barcode detector is not supported i
 
 let codes = [];
 const seen = new Set();
-
+var audio = new Audio('/dist/sounds/beep.wav');
 let formats;
 // Save all formats to formats var 
 BarcodeDetector.getSupportedFormats().then(item => formats = item);
@@ -40,6 +40,7 @@ const codesProxy = new Proxy(codes, {
 });
 const printBarcodeOutput = (value) => {
     console.info('Barcode result is: ', value);
+    audio.play();
     alert(value)
 }
 // Get video element 
@@ -102,7 +103,6 @@ const drawCodePath = ({ cornerPoints }) => {
     ctx.stroke();
 }
 var isDetected = false;
-var audio = new Audio('/BarcodeScanner/sounds/beep.wav');
 // Detect code function 
 const detectCode = () => {
     barcodeDetector.detect(video).then(codes => {
@@ -133,7 +133,6 @@ const detectCode = () => {
 const detectInterval = setInterval((interval) => {
     detectCode();
     if (isDetected) {
-        audio.play();
         clearInterval(detectInterval);
         streamObj.getTracks().forEach(function (track) {
             track.stop();
