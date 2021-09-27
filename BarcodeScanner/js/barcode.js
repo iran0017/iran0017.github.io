@@ -1,5 +1,8 @@
 if (!('BarcodeDetector' in window)) { alert('Barcode detector is not supported in this OS!') }
-
+var streamObj;
+var streamID;
+// Get video element 
+const video = document.getElementById('video');
 let codes = [];
 const seen = new Set();
 var audio = new Audio('/BarcodeScanner/sounds/beep.wav');
@@ -43,23 +46,14 @@ const printBarcodeOutput = (value) => {
     audio.play();
     alert(value)
 }
-// Get video element 
-const video = document.getElementById('video');
-var streamObj;
-// Check for a camera
-if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-    const constraints = {
-        video: { facingMode: "environment" },
-        audio: false
-    };
-
-    // Start video stream
-    navigator.mediaDevices.getUserMedia(constraints).then(stream => {
-        video.srcObject = stream
-        streamObj = stream;
+function stopBothVideoAndAudio(stream) {
+    stream.getTracks().forEach(function (track) {
+        if (track.readyState == 'live') {
+            track.stop();
+        }
     });
+    alert('cleaned camera');
 }
-
 // Draw outline to canvas 
 const drawCodePath = ({ cornerPoints }) => {
     const canvas = document.getElementById('canvas');
@@ -128,14 +122,33 @@ const detectCode = () => {
         console.log(err);
     })
 }
-
-// Run detect code function every 100 milliseconds
-const detectInterval = setInterval((interval) => {
-    detectCode();
-    if (isDetected) {
-        clearInterval(detectInterval);
-        streamObj.getTracks().forEach(function (track) {
-            track.stop();
+function initScanBarcode(streamid) {
+    streamID = streamid;
+    // Check for a camera
+    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+        const constraints = {
+            video: { facingMode: "environment" },
+            audio: false
+        };
+        // Start video stream
+        navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+            video.srcObject = stream
+            streamObj = stream;
         });
     }
-}, 100);
+    if (!streamObj)
+        document.getElementById(streamID).addEventListener("hidden.bs.modal", function () {
+            if (streamObj)
+                stopBothVideoAndAudio(streamObj);
+        });
+    // Run detect code function every 100 milliseconds
+    const detectInterval = setInterval((interval) => {
+        detectCode();
+        if (isDetected) {
+            clearInterval(detectInterval);
+            streamObj.getTracks().forEach(function (track) {
+                track.stop();
+            });
+        }
+    }, 100);
+}
