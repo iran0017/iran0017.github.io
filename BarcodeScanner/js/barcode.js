@@ -52,7 +52,6 @@ function stopBothVideoAndAudio(stream) {
             track.stop();
         }
     });
-    alert('cleaned camera');
 }
 // Draw outline to canvas 
 const drawCodePath = ({ cornerPoints }) => {
