@@ -153,7 +153,7 @@
   <div class="page-content-wrapper py-3">
     <!-- Add New Contact -->
     <div class="add-new-contact-wrap">
-      <a class="shadow" href="#" data-bs-toggle="modal" data-bs-target="#addnewcontact"><i
+      <a class="shadow" href="#" data-bs-toggle="modal" id="startScanBarcode" data-bs-target="#addnewcontact"><i
           class="bi bi-plus-lg"></i></a>
     </div>
     <div class="container">
@@ -534,6 +534,10 @@
   <script src="js/barcode.js"></script>
   <!-- PWA -->
   <script src="js/pwa.js"></script>
+  <script>
+    document.getElementById('startScanBarcode').addEventListener('click', () => { initScanBarcode('addnewcontact') })
+
+  </script>
 </body>
 
 </html>
