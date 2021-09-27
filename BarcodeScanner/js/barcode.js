@@ -2,7 +2,7 @@ if (!('BarcodeDetector' in window)) { alert('Barcode detector is not supported i
 
 let codes = [];
 const seen = new Set();
-var audio = new Audio('/dist/sounds/beep.wav');
+var audio = new Audio('/BarcodeScanner/sounds/beep.wav');
 let formats;
 // Save all formats to formats var 
 BarcodeDetector.getSupportedFormats().then(item => formats = item);
