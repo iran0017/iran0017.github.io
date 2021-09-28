@@ -7,8 +7,8 @@ const dynamicCacheName = 'runtimeCache-v1';
 
 // Pre Caching Assets
 const precacheAssets = [
-    '/css/bootstrap.min.css',
-    '/style.css'
+    './css/bootstrap.min.css',
+    './style.css'
 ];
 
 // Install Event
