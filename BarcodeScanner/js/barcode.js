@@ -45,9 +45,8 @@ function playBeep() {
             source.connect(audioCtx.destination);
             source.loop = false;
             source.start();
-            playsound(audioBuffer);
         };
-
+            playsound(audioBuffer);
         audioCtx.decodeAudioData(xhr.response).then(playsound);
     });
     xhr.send();
