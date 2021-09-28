@@ -531,7 +531,8 @@
   <!-- PWA -->
   <script src="js/pwa.js"></script>
   <script>
-    document.getElementById('startScanBarcode').addEventListener('click', () => { initBarcodeScanning('video-wrapper') });
+    document.getElementById('startScanBarcode').addEventListener('click', () => { initBarcodeScanner('video-wrapper') });
+    document.getElementById('addnewcontact').addEventListener('hidden.bs.modal', () => { resetBarcodeScanner() })
   </script>
 </body>
 
