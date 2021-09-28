@@ -1,6 +1,6 @@
 
-var audio = new Audio('/BarcodeScanner/sounds/beep.wav');
-function initBarcodeScanning(videoContainer) {
+var audio = new Audio('/dist/sounds/beep.wav');
+function initBarcodeScanner(videoContainer) {
     Quagga.init({
         inputStream: {
             name: "Live",
@@ -28,5 +28,10 @@ function initBarcodeScanning(videoContainer) {
         alert(data.codeResult.code)
         Quagga.stop()
     }
+
+}
+
+function resetBarcodeScanner() {
+    Quagga.stop();
 }
 
