@@ -1,5 +1,5 @@
 
-const beepAudioPath = '/BarcodeScanner/sounds/beep.wav'
+var audio = document.getElementById('beepAudio');
 function initBarcodeScanner(videoContainer) {
     Quagga.init({
         inputStream: {
@@ -19,35 +19,19 @@ function initBarcodeScanner(videoContainer) {
         Quagga.start();
     });
 
-}
-Quagga.onDetected(barcodeDetected)
-function barcodeDetected(data) {
-    document.getElementById('quaggaVideo').pause()
-    console.log('detectedObject', data);
-    playBeep();
-    alert(data.codeResult.code)
-    Quagga.stop()
-}
-function resetBarcodeScanner() {
-    Quagga.stop();
+
+    Quagga.onDetected(barcodeDetected)
+    function barcodeDetected(data) {
+        document.getElementById('quaggaVideo').pause()
+        console.log('detectedObject', data);
+        audio.play();
+        alert(data.codeResult.code)
+        Quagga.stop()
+    }
+
 }
 
-function playBeep() {
-    // noinspection JSUnresolvedVariable
-    let audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', beepAudioPath);
-    xhr.responseType = 'arraybuffer';
-    xhr.addEventListener('load', () => {
-        let playsound = (audioBuffer) => {
-            let source = audioCtx.createBufferSource();
-            source.buffer = audioBuffer;
-            source.connect(audioCtx.destination);
-            source.loop = false;
-            source.start();
-        };
-        audioCtx.decodeAudioData(xhr.response).then(playsound);
-    });
-    xhr.send();
+function resetBarcodeScanner() {
+    Quagga.stop();
 }
 
