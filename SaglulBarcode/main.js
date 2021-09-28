@@ -1,4 +1,4 @@
-
+var audio = new Audio('./beep.wav');
 
 Quagga.init({
   inputStream: {
@@ -23,6 +23,7 @@ Quagga.onDetected(barcodeDetected)
 function barcodeDetected(data) {
   document.getElementById('quaggaVideo').pause()
   console.log('detectedObject', data);
+  audio.play();
   alert(data.codeResult.code)
   Quagga.stop()
 }
