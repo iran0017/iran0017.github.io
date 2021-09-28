@@ -39,7 +39,7 @@ function playBeep() {
     var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     var source = audioCtx.createBufferSource();
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '../dist/sounds/beep.wav');
+    xhr.open('GET', '../sounds/beep.wav');
     xhr.responseType = 'arraybuffer';
     xhr.addEventListener('load', function (r) {
         audioCtx.decodeAudioData(
